@@ -89,17 +89,18 @@ let imagesDice = ['https://icon2.cleanpng.com/20180219/yqw/kisspng-dice-game-kis
 'http://www.clker.com/cliparts/l/6/4/3/K/H/dice-6.svg',
 ];
 
-console.log(imagesDice)
+// console.log(imagesDice)
 let imgUserEl = document.getElementById('imgUser');
 let imgPcEl = document.getElementById('imgPc');
 
 // dichiaro un evento
 diceEl.addEventListener('click', function(){
 
+    // creo due numeri random
     let randomNumberUser = Math.floor(Math.random() * 6 + 1);
     let randomNumberPc = Math.floor(Math.random() * 6 + 1);
 
-
+    // controllo per risultato partita
     if(randomNumberUser < randomNumberPc){
         console.log('pc vince ');
         resultEl.innerHTML=('pc vince');
@@ -113,10 +114,11 @@ diceEl.addEventListener('click', function(){
         resultEl.innerHTML=('Hai vinto ');
 
     };
-
+    // stampo i risultati
     userEl.innerHTML=('il tuo numero ' + randomNumberUser);
     pcEl.innerHTML=('il numero del pc ' + randomNumberPc);
 
+    // ciclo per img
     for(i = 0 ; i < imagesDice.length ; i++){
 
         imgUserEl.src=imagesDice[randomNumberUser-1];
