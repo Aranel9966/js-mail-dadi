@@ -23,29 +23,32 @@ let printEl = document.getElementById('print');
 
 // creo un evento per prendere il valore dentro l'input al premere del bottone
 submitEl.addEventListener('click', function(){
-    let access ='';
+    
+    let isAccess = false;
+
+    
     //ciclo di controllo email
-    for(i = 0 ; i < emails.length ; i++ ){
+    for(let i = 0 ; i < emails.length ; i++ ){
 
         // console.log(emails[i])
         // console.log(userEmailEl.value)
 
 
         if(userEmailEl.value == emails[i]){
-            access = 1;
+            isAccess = true;
             console.log('accesso riuscito')
 
-        }else{
-            console.log('accesso NON riuscito')
+        }// else{
+        
+        //     console.log('accesso NON riuscito')
 
-        };
+        // };
 
     };
-    // controllo stampa
-
     
-
-    if(access == 1 ){
+    
+    // controllo stampa
+    if(isAccess){
         printEl.innerText=('Accesso riuscito')
         
     }else{
@@ -103,11 +106,11 @@ diceEl.addEventListener('click', function(){
     // controllo per risultato partita
     if(randomNumberUser < randomNumberPc){
         console.log('pc vince ');
-        resultEl.innerHTML=('pc vince');
+        resultEl.innerHTML=('Pc vince');
 
     }else if(randomNumberUser == randomNumberPc){
         console.log('pareggio');
-        resultEl.innerHTML=('pareggio');
+        resultEl.innerHTML=('Pareggio');
 
     }else{
         console.log('utente vince ');
@@ -115,20 +118,15 @@ diceEl.addEventListener('click', function(){
 
     };
     // stampo i risultati
-    userEl.innerHTML=('il tuo numero ' + randomNumberUser);
-    pcEl.innerHTML=('il numero del pc ' + randomNumberPc);
+    userEl.innerHTML=('Il tuo numero ' + randomNumberUser);
+    pcEl.innerHTML=('Il numero del pc ' + randomNumberPc);
 
-    // ciclo per img
-    for(i = 0 ; i < imagesDice.length ; i++){
-
-        imgUserEl.src=imagesDice[randomNumberUser-1];
-        imgUserEl.style.display='block';
-        imgPcEl.src=imagesDice[randomNumberPc-1];
-        imgPcEl.style.display='block';
-
-        
-        
-    };
+    // inserimento img secondo i numeri random
+    
+    imgUserEl.src=imagesDice[randomNumberUser-1];
+    imgUserEl.style.display='block';
+    imgPcEl.src=imagesDice[randomNumberPc-1];
+    imgPcEl.style.display='block';
 
 });
 
